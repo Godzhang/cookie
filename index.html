@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Focus</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+
+	</style>
+</head>
+<body>
+
+<button id="add">addCookie</button>
+<button id="get">getCookie</button>
+<button id="del">delCookie</button>
+
+
+<script src="js/cookie.js"></script>
+<script>
+
+function getId(id){
+	return document.getElementById(id);
+}
+
+var add = getId("add");
+var get = getId("get");
+var del = getId("del");
+
+add.onclick = function(){
+	cookie.setCookie("age", "29", {
+		expires: 7,
+		path: '/'
+	});
+}
+get.onclick = function(){
+	console.log( cookie.getCookie("wife") );
+}
+del.onclick = function(){
+	console.log(cookie.removeCookie("user"));
+}
+
+
+
+
+</script>
+</body>
+</html>
