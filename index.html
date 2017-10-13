@@ -26,17 +26,25 @@ var add = getId("add");
 var get = getId("get");
 var del = getId("del");
 
+function setCookie(name, value, day){
+	var date = new Date();
+	date.setMilliseconds(date.getMilliseconds() + day * 864e+5);
+	document.cookie = name + "="+ value +"; expires=" + date.toUTCString() + "; path=/";
+}
+
 add.onclick = function(){
-	cookie.setCookie("age", "29", {
+	cookie.setCookie("name", "zhangqi", {
 		expires: 7,
 		path: '/'
 	});
 }
 get.onclick = function(){
-	console.log( cookie.getCookie("wife") );
+	console.log( cookie.getCookie("name") );
 }
 del.onclick = function(){
-	console.log(cookie.removeCookie("user"));
+	console.log(cookie.removeCookie("name", {
+		path: '/'
+	}));
 }
 
 
